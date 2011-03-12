@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml;
 using System.Windows.Forms;
 
 namespace D16.VideoCommander
 {
+    /// <summary>
+    /// Serielizer for play lists.
+    /// </summary>
     class PlaylistSerializer
     {
+        /// <summary>
+        /// Serializes the specified play list items.
+        /// </summary>
+        /// <param name="items">The play list.</param>
+        /// <returns>The serielized play list as xml document.</returns>
         public XmlDocument Serialize(IEnumerable<ListViewItem> items)
         {
             XmlDocument doc = new XmlDocument();
@@ -41,6 +47,11 @@ namespace D16.VideoCommander
             return doc;
         }
 
+        /// <summary>
+        /// Deserializes a play list from specified xml document.
+        /// </summary>
+        /// <param name="document">The serialized play list as xml document.</param>
+        /// <returns>The play list as list of items.</returns>
         public IEnumerable<ListViewItem> Deserialize(XmlDocument document)
         {
             List<ListViewItem> items = new List<ListViewItem>();
@@ -64,6 +75,13 @@ namespace D16.VideoCommander
             return items;
         }
 
+        /// <summary>
+        /// Returns the value of the specified attribute.
+        /// If the attribute is not present for the specified node, an empty string is returned.
+        /// </summary>
+        /// <param name="node">The xml node.</param>
+        /// <param name="name">The attribute name.</param>
+        /// <returns>Value of the attribute or an empty string as fallback.</returns>
         public string GetAttributeValue(XmlNode node, string name)
         {
             if (node == null || String.IsNullOrEmpty(name))

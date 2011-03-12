@@ -19,6 +19,7 @@ namespace D16.VideoCommander
 
             using (Main app = new Main())
             {
+                // Open play list from arguments.
                 if (arguments != null && arguments.Length > 0)
                 {
                     foreach (string fileName in arguments)
@@ -30,12 +31,13 @@ namespace D16.VideoCommander
                     }
                 }
 
+                // Register file extension, if application is executed with admin rights...
                 if (FileExtensionRegistry.IsAdministrator())
                 {
                     Assembly assembly = Assembly.GetExecutingAssembly();
 
                     FileExtensionRegistry.CreateFileAssociation(
-                        "vplx", "D16VideoPlaylist", "Playlist for D16 VideoCommander.",
+                        "vplx", "D16VideoPlaylist", "Play list for D16 VideoCommander",
                         assembly.Location);
                 }
 

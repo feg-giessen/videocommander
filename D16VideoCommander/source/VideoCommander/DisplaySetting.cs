@@ -2,6 +2,9 @@
 
 namespace D16.VideoCommander
 {
+    /// <summary>
+    /// A display setting.
+    /// </summary>
     [Serializable]
     public class DisplaySetting
     {
