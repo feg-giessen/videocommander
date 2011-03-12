@@ -6,6 +6,8 @@ namespace D16.VideoCommander
 {
     public partial class AddDialog : Form
     {
+        private System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDialog));
+
         public AddDialog()
         {
             InitializeComponent();
@@ -57,7 +59,7 @@ namespace D16.VideoCommander
         {
             if (!Video.StartsWith("dvdsimple:") && !File.Exists(Video))
             {
-                MessageBox.Show("Datei existiert nicht...", "Bitte wählen Sie eine gültige Video-Datei aus.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(resources.GetString("Error.NoFile"), resources.GetString("Error.NoFile.Title"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {

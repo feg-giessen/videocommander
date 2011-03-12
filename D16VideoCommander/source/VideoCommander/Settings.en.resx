@@ -117,136 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblSprache.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblSprache.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 36</value>
-  </data>
-  <data name="lblSprache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
-  </data>
-  <data name="lblSprache.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lblSprache.Text" xml:space="preserve">
-    <value>Sprache:</value>
-  </data>
-  <data name="&gt;&gt;lblSprache.Name" xml:space="preserve">
-    <value>lblSprache</value>
-  </data>
-  <data name="&gt;&gt;lblSprache.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblSprache.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblSprache.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="txbSprache.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 33</value>
-  </data>
-  <data name="txbSprache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="txbSprache.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="txbSprache.Text" xml:space="preserve">
-    <value>de</value>
-  </data>
-  <data name="&gt;&gt;txbSprache.Name" xml:space="preserve">
-    <value>txbSprache</value>
-  </data>
-  <data name="&gt;&gt;txbSprache.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txbSprache.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txbSprache.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="chkVideoTitel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkVideoTitel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 72</value>
-  </data>
-  <data name="chkVideoTitel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 17</value>
-  </data>
-  <data name="chkVideoTitel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="chkVideoTitel.Text" xml:space="preserve">
-    <value>Videotitel anzeigen</value>
-  </data>
-  <data name="&gt;&gt;chkVideoTitel.Name" xml:space="preserve">
-    <value>chkVideoTitel</value>
-  </data>
-  <data name="&gt;&gt;chkVideoTitel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkVideoTitel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;chkVideoTitel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 105</value>
-  </data>
-  <data name="btnOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="btnOk.Text" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="&gt;&gt;btnOk.Name" xml:space="preserve">
-    <value>btnOk</value>
+  <data name="chkVideoTitel.Text" xml:space="preserve">
+    <value>Show video title</value>
   </data>
-  <data name="&gt;&gt;btnOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblSprache.Text" xml:space="preserve">
+    <value>Language:</value>
   </data>
-  <data name="&gt;&gt;btnOk.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>345, 140</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Einstellungen</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txbSprache.Text" xml:space="preserve">
+    <value>en</value>
   </data>
 </root>
