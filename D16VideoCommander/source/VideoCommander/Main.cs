@@ -185,6 +185,16 @@ namespace D16.VideoCommander
             display1 = GetSetting1();
             display2 = GetSetting2();
 
+            string activeDisplay = ConfigManager.GetValue("current-display");
+            if (activeDisplay == "display2")
+            {
+                rbnDisplay2.Checked = true;
+            }
+            else
+            {
+                rbnDisplay1.Checked = true;
+            }
+
             SetDisplayBindings(GetActiveDisplay());
         }
 
@@ -216,6 +226,8 @@ namespace D16.VideoCommander
 
                 ConfigManager.SetValue("audio-language", settingsDialog.Language);
                 ConfigManager.SetValue("show-videotitle", settingsDialog.ShowVideoTitle);
+
+                ConfigManager.SetValue("current-display", rbnDisplay2.Checked ? "display2" : "display1");
             }
             catch (Exception exception)
             {
