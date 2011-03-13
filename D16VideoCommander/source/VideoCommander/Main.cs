@@ -11,6 +11,8 @@ namespace D16.VideoCommander
 {
     public partial class Main : Form
     {
+        private System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+
         private string vlcPath;
 
         private AddDialog addDialog;
@@ -42,7 +44,7 @@ namespace D16.VideoCommander
             addDialog = new AddDialog();
             settingsDialog = new Settings();
 
-            lblVersion.Text = String.Format("Version {0} [Fragen: peter@d16.de]", Application.ProductVersion);
+            lblVersion.Text = String.Format("Version {0} [peter@d16.de]", Application.ProductVersion);
 
             settingSerializer = new DisplaySettingSerializer();
             playlistSerializer = new PlaylistSerializer();
@@ -322,7 +324,7 @@ namespace D16.VideoCommander
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Sollen alle Einträge in der Wiedergabeliste gelöscht werden?", "Alle Einträge löschen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            if (MessageBox.Show(resources.GetString("Message.Clear"), resources.GetString("Message.Clear.Title"), MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 == System.Windows.Forms.DialogResult.Yes)
             {
                 playlist.Items.Clear();
@@ -379,9 +381,9 @@ namespace D16.VideoCommander
             {
                 Trace.TraceError(exception.ToString());
 
-                MessageBox.Show(String.Concat("Die Datei konnte nicht gelesen werden",
+                MessageBox.Show(String.Concat(resources.GetString("Error.FileLoad"),
                     Environment.NewLine, Environment.NewLine,
-                    exception.Message), "Fehler beim Lesen der Datei...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    exception.Message), resources.GetString("Error.FileLoad.Title"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }            
         }
 
