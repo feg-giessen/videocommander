@@ -85,7 +85,6 @@
             // 
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.lblHeight);
             this.panel1.Controls.Add(this.lblWidth);
             this.panel1.Controls.Add(this.lblYPos);
             this.panel1.Controls.Add(this.lblXPos);
@@ -96,6 +95,7 @@
             this.panel1.Controls.Add(this.chkCloseAfterPlay);
             this.panel1.Controls.Add(this.chkEmbedded);
             this.panel1.Controls.Add(this.chkFullscreen);
+            this.panel1.Controls.Add(this.lblHeight);
             this.panel1.Name = "panel1";
             // 
             // lblHeight

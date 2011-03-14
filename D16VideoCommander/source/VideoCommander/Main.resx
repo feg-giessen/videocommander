@@ -177,186 +177,6 @@
   <data name="panel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;lblHeight.Name" xml:space="preserve">
-    <value>lblHeight</value>
-  </data>
-  <data name="&gt;&gt;lblHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblHeight.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lblHeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblWidth.Name" xml:space="preserve">
-    <value>lblWidth</value>
-  </data>
-  <data name="&gt;&gt;lblWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblWidth.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lblWidth.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblYPos.Name" xml:space="preserve">
-    <value>lblYPos</value>
-  </data>
-  <data name="&gt;&gt;lblYPos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblYPos.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lblYPos.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblXPos.Name" xml:space="preserve">
-    <value>lblXPos</value>
-  </data>
-  <data name="&gt;&gt;lblXPos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblXPos.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lblXPos.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;valHeight.Name" xml:space="preserve">
-    <value>valHeight</value>
-  </data>
-  <data name="&gt;&gt;valHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;valHeight.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;valHeight.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;valWidth.Name" xml:space="preserve">
-    <value>valWidth</value>
-  </data>
-  <data name="&gt;&gt;valWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;valWidth.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;valWidth.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;valYPos.Name" xml:space="preserve">
-    <value>valYPos</value>
-  </data>
-  <data name="&gt;&gt;valYPos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;valYPos.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;valYPos.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;valXPos.Name" xml:space="preserve">
-    <value>valXPos</value>
-  </data>
-  <data name="&gt;&gt;valXPos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;valXPos.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;valXPos.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;chkCloseAfterPlay.Name" xml:space="preserve">
-    <value>chkCloseAfterPlay</value>
-  </data>
-  <data name="&gt;&gt;chkCloseAfterPlay.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkCloseAfterPlay.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;chkCloseAfterPlay.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;chkEmbedded.Name" xml:space="preserve">
-    <value>chkEmbedded</value>
-  </data>
-  <data name="&gt;&gt;chkEmbedded.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkEmbedded.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;chkEmbedded.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;chkFullscreen.Name" xml:space="preserve">
-    <value>chkFullscreen</value>
-  </data>
-  <data name="&gt;&gt;chkFullscreen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkFullscreen.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;chkFullscreen.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 33</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 205</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblHeight.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 102</value>
-  </data>
-  <data name="lblHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 13</value>
-  </data>
-  <data name="lblHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lblHeight.Text" xml:space="preserve">
-    <value>Height</value>
-  </data>
-  <data name="&gt;&gt;lblHeight.Name" xml:space="preserve">
-    <value>lblHeight</value>
-  </data>
-  <data name="&gt;&gt;lblHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblHeight.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lblHeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="lblWidth.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -382,7 +202,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;lblWidth.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="lblYPos.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -409,7 +229,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;lblYPos.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="lblXPos.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -436,7 +256,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;lblXPos.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="valHeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>52, 100</value>
@@ -457,7 +277,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;valHeight.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="valWidth.Location" type="System.Drawing.Point, System.Drawing">
     <value>52, 74</value>
@@ -478,7 +298,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;valWidth.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="valYPos.Location" type="System.Drawing.Point, System.Drawing">
     <value>52, 40</value>
@@ -499,7 +319,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;valYPos.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="valXPos.Location" type="System.Drawing.Point, System.Drawing">
     <value>52, 14</value>
@@ -520,7 +340,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;valXPos.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="chkCloseAfterPlay.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -547,7 +367,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;chkCloseAfterPlay.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="chkEmbedded.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -574,7 +394,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;chkEmbedded.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="chkFullscreen.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -601,7 +421,55 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;chkFullscreen.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblHeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 102</value>
+  </data>
+  <data name="lblHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 13</value>
+  </data>
+  <data name="lblHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblHeight.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="&gt;&gt;lblHeight.Name" xml:space="preserve">
+    <value>lblHeight</value>
+  </data>
+  <data name="&gt;&gt;lblHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblHeight.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;lblHeight.ZOrder" xml:space="preserve">
     <value>10</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 33</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 205</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>574, 12</value>
