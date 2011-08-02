@@ -59,7 +59,10 @@ namespace D16.VideoCommander
 
         private void Main_Shown(object sender, EventArgs e)
         {
-            string storedPath = ConfigManager.GetValue("vlcPath");
+            string storedPath = Properties.Settings.Default.VlcPath;
+
+            if (String.IsNullOrEmpty(storedPath))
+                storedPath = ConfigManager.GetValue("defaultVlcPath");
             
             if (!String.IsNullOrEmpty(storedPath) && File.Exists(storedPath))
             {
@@ -85,7 +88,9 @@ namespace D16.VideoCommander
                 }
             }
 
-            ConfigManager.SetValue("vlcPath", vlcPath);
+            Properties.Settings.Default.VlcPath = vlcPath;
+            Properties.Settings.Default.Save();
+
             commander = new VlcCommander(vlcPath);
         }
 
@@ -115,7 +120,7 @@ namespace D16.VideoCommander
 
         private DisplaySetting GetSetting1()
         {
-            string confValue = ConfigManager.GetValue("display1");
+            string confValue = Properties.Settings.Default.Display1;
 
             try
             {
@@ -142,7 +147,7 @@ namespace D16.VideoCommander
 
         private DisplaySetting GetSetting2()
         {
-            string confValue = ConfigManager.GetValue("display2");
+            string confValue = Properties.Settings.Default.Display2;
 
             try
             {
@@ -171,15 +176,11 @@ namespace D16.VideoCommander
         {
             InitializeFormPosition();
 
-            string language = ConfigManager.GetValue("audio-language");
+            string language = Properties.Settings.Default.AudioLanguage;
             if (String.IsNullOrEmpty(language))
                 language = "de";
 
-            bool showTitle;
-            if (!bool.TryParse(ConfigManager.GetValue("show-videotitle"), out showTitle))
-            {
-                showTitle = false;
-            }
+            bool showTitle = Properties.Settings.Default.ShowVideoTitle;
 
             settingsDialog.ShowVideoTitle = showTitle;
             settingsDialog.Language = language;
@@ -187,7 +188,7 @@ namespace D16.VideoCommander
             display1 = GetSetting1();
             display2 = GetSetting2();
 
-            string activeDisplay = ConfigManager.GetValue("current-display");
+            string activeDisplay = Properties.Settings.Default.CurrentDisplay;
             if (activeDisplay == "display2")
             {
                 rbnDisplay2.Checked = true;
@@ -204,11 +205,14 @@ namespace D16.VideoCommander
         {
             int temp;
 
-            if (int.TryParse(ConfigManager.GetValue("formPosLeft"), out temp))
+            temp = Properties.Settings.Default.FormLeft;
+            if (temp > 0)
             {
                 this.Left = temp;
             }
-            if (int.TryParse(ConfigManager.GetValue("formPosTop"), out temp))
+
+            temp = Properties.Settings.Default.FormTop;
+            if (temp > 0)
             {
                 this.Top = temp;
             }
@@ -218,18 +222,20 @@ namespace D16.VideoCommander
         {
             try
             {
-                ConfigManager.SetValue("formPosLeft", this.Left);
-                ConfigManager.SetValue("formPosTop", this.Top);
+                Properties.Settings.Default.FormLeft = this.Left;
+                Properties.Settings.Default.FormTop = this.Top;
 
-                ConfigManager.SetValue("vlcPath", this.vlcPath);
+                Properties.Settings.Default.VlcPath = this.vlcPath;
 
-                ConfigManager.SetValue("display1", settingSerializer.Serialize(display1));
-                ConfigManager.SetValue("display2", settingSerializer.Serialize(display2));
+                Properties.Settings.Default.Display1 = settingSerializer.Serialize(display1);
+                Properties.Settings.Default.Display2 = settingSerializer.Serialize(display2);
 
-                ConfigManager.SetValue("audio-language", settingsDialog.Language);
-                ConfigManager.SetValue("show-videotitle", settingsDialog.ShowVideoTitle);
+                Properties.Settings.Default.AudioLanguage = settingsDialog.Language;
+                Properties.Settings.Default.ShowVideoTitle = settingsDialog.ShowVideoTitle;
 
-                ConfigManager.SetValue("current-display", rbnDisplay2.Checked ? "display2" : "display1");
+                Properties.Settings.Default.CurrentDisplay = rbnDisplay2.Checked ? "display2" : "display1";
+
+                Properties.Settings.Default.Save();
             }
             catch (Exception exception)
             {

@@ -17,6 +17,9 @@ namespace D16.VideoCommander
             Application.ThreadException += Application_ThreadException;
             AppDomain.CurrentDomain.UnhandledException += WorkerThreadHandler;
 
+            if (String.IsNullOrEmpty(Properties.Settings.Default.VlcPath))
+                Properties.Settings.Default.Upgrade();
+
             using (Main app = new Main())
             {
                 // Open play list from arguments.
