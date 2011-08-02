@@ -7,7 +7,7 @@ namespace D16.VideoCommander
     /// <summary>
     /// Manager for access to app.config settings.
     /// </summary>
-    static class ConfigManager
+    internal static class ConfigManager
     {
         static private Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 

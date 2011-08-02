@@ -1,6 +1,6 @@
 ﻿namespace D16.VideoCommander
 {
-    partial class AddDialog
+    internal partial class AddDialog
     {
         /// <summary>
         /// Required designer variable.

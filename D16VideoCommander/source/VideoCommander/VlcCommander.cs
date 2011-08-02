@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace D16.VideoCommander
 {
     /// <summary>
     /// Passes commands to the vlc video player.
     /// </summary>
-    class VlcCommander
+    internal class VlcCommander
     {
         /// <summary>
         /// Path to "vlc.exe"
@@ -30,6 +30,7 @@ namespace D16.VideoCommander
         public void Start(params VlcArgumentBuilder[] command)
         {
             List<string> commands = new List<string>();
+
             foreach (var item in command) 
             {
                 commands.Add(item.GetArgumentString());
@@ -40,8 +41,8 @@ namespace D16.VideoCommander
 
             using (Process vlc = new Process()) 
             {
-                vlc.StartInfo = new ProcessStartInfo(path, argumentString);
-                vlc.ErrorDataReceived += vlc_ErrorDataReceived;
+                vlc.StartInfo = new ProcessStartInfo(this.path, argumentString);
+                vlc.ErrorDataReceived += OnVlcErrorDataReceived;
 
                 vlc.Start();
             }
@@ -52,7 +53,7 @@ namespace D16.VideoCommander
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.Diagnostics.DataReceivedEventArgs" /> instance containing the event data.</param>
-        private void vlc_ErrorDataReceived(object sender, DataReceivedEventArgs e)
+        private void OnVlcErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
             if (e == null)
                 return;

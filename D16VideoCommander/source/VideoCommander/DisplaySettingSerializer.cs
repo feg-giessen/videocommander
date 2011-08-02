@@ -1,14 +1,14 @@
-﻿using System.Text;
-using System.Xml.Serialization;
+﻿using System;
 using System.IO;
-using System;
+using System.Text;
+using System.Xml.Serialization;
 
 namespace D16.VideoCommander
 {
     /// <summary>
     /// Serializer for display settings.
     /// </summary>
-    class DisplaySettingSerializer
+    internal class DisplaySettingSerializer
     {
         /// <summary>
         /// The xml serializer.

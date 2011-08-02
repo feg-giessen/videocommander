@@ -9,7 +9,7 @@ using Microsoft.WindowsAPICodePack.Taskbar;
 
 namespace D16.VideoCommander
 {
-    public partial class Main : Form
+    internal partial class Main : Form
     {
         private System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
 

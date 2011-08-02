@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using System.Diagnostics;
-using Microsoft.Win32;
-using System.Security.Principal;
 using System.Globalization;
+using System.Runtime.InteropServices;
+using System.Security.Principal;
+using Microsoft.Win32;
 
 namespace D16.VideoCommander
 {
-    class FileExtensionRegistry
+    internal class FileExtensionRegistry
     {
         /// <summary>
         /// Returns true, if current user has administrator priviliges.
@@ -42,13 +42,13 @@ namespace D16.VideoCommander
                 // create a value for this key that contains the classname
                 using (RegistryKey key1 = Registry.ClassesRoot.CreateSubKey(extension))
                 {
-                    key1.SetValue("", className);
+                    key1.SetValue(String.Empty, className);
                 }
 
                 // create a new key for the Class name
                 using (RegistryKey key2 = Registry.ClassesRoot.CreateSubKey(className))
                 {
-                    key2.SetValue("", description);
+                    key2.SetValue(String.Empty, description);
                 }
 
                 // associate the program to open the files with this extension
@@ -56,10 +56,10 @@ namespace D16.VideoCommander
                 {
                     string value = String.Format(CultureInfo.InvariantCulture, "{0} \"%1\"", exeProgram);
 
-                    if (value.Equals(key3.GetValue("")))
+                    if (value.Equals(key3.GetValue(String.Empty)))
                         return false;
 
-                    key3.SetValue("", value);
+                    key3.SetValue(String.Empty, value);
                 }
             }
             catch (Exception exception)
@@ -78,7 +78,7 @@ namespace D16.VideoCommander
             return true;
         }
 
-        class NativeMethods
+        private class NativeMethods
         {
             [DllImport("shell32.dll")]
             public static extern void SHChangeNotify(HChangeNotifyEventID wEventId, HChangeNotifyFlags uFlags, IntPtr dwItem1, IntPtr dwItem2);

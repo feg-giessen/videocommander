@@ -1,6 +1,6 @@
 ﻿namespace D16.VideoCommander
 {
-    partial class Settings
+    internal partial class Settings
     {
         /// <summary>
         /// Required designer variable.

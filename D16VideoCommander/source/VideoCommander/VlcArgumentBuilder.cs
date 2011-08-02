@@ -25,13 +25,13 @@ namespace D16.VideoCommander
         /// <param name="value">The parameter value.</param>
         protected void SetString(string key, string value)
         {
-            if (commands.ContainsKey(key))
+            if (this.commands.ContainsKey(key))
             {
-                commands[key] = value;
+                this.commands[key] = value;
             }
             else
             {
-                commands.Add(key, value);
+                this.commands.Add(key, value);
             }
         }
 
@@ -43,16 +43,16 @@ namespace D16.VideoCommander
         /// <param name="falseValue">The argument string for "false".</param>
         protected void SetBoolean(bool value, string trueValue, string falseValue)
         {
-            commands.Remove(trueValue);
-            commands.Remove(falseValue);
+            this.commands.Remove(trueValue);
+            this.commands.Remove(falseValue);
 
             if (value)
             {
-                commands.Add(trueValue, null);
+                this.commands.Add(trueValue, null);
             }
             else
             {
-                commands.Add(falseValue, null);
+                this.commands.Add(falseValue, null);
             }
         }
 
@@ -64,7 +64,7 @@ namespace D16.VideoCommander
         {
             StringBuilder result = new StringBuilder();
 
-            foreach (var item in commands)
+            foreach (var item in this.commands)
             {
                 string value = item.Value;
 

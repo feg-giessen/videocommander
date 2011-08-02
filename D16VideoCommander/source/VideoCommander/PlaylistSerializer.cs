@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace D16.VideoCommander
 {
     /// <summary>
     /// Serielizer for play lists.
     /// </summary>
-    class PlaylistSerializer
+    internal class PlaylistSerializer
     {
         /// <summary>
         /// Serializes the specified play list items.
@@ -63,10 +63,11 @@ namespace D16.VideoCommander
             {
                 ListViewItem item = new ListViewItem(element.InnerText);
 
-                item.SubItems.AddRange(new string[] {
-                    GetAttributeValue(element, "start"),
-                    GetAttributeValue(element, "end"),
-                    GetAttributeValue(element, "duration")
+                item.SubItems.AddRange(new []
+                {
+                    this.GetAttributeValue(element, "start"),
+                    this.GetAttributeValue(element, "end"),
+                    this.GetAttributeValue(element, "duration")
                 });
 
                 items.Add(item);

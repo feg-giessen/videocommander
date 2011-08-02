@@ -1,6 +1,6 @@
 ﻿namespace D16.VideoCommander
 {
-    partial class Main
+    internal partial class Main
     {
         /// <summary>
         /// Required designer variable.

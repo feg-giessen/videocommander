@@ -52,9 +52,10 @@ namespace D16.VideoCommander
             {
                 return Convert.ToInt32(value);
             }
-            catch { }
-
-            return 0;
+            catch
+            {
+                return 0;
+            }
         }
 
         /// <summary>

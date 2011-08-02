@@ -3,7 +3,7 @@
     /// <summary>
     /// Build for global (not file specific) vlc arguments.
     /// </summary>
-    class VlcCommandBuilder : VlcArgumentBuilder
+    internal class VlcCommandBuilder : VlcArgumentBuilder
     {
         /// <summary>
         /// Sets the audio language (e.g. for dvd).
@@ -12,7 +12,8 @@
         /// <returns></returns>
         public VlcCommandBuilder SetLanguage(string isoCode)
         {
-            SetString("--audio-language", isoCode);
+            this.SetString("--audio-language", isoCode);
+
             return this;
         }
 
@@ -23,7 +24,7 @@
         /// <returns></returns>
         public VlcCommandBuilder SetFullscreen(bool fullscreen)
         {
-            SetBoolean(fullscreen, "--fullscreen", "--no-fullscreen");
+            this.SetBoolean(fullscreen, "--fullscreen", "--no-fullscreen");
 
             return this;
         }
@@ -35,7 +36,7 @@
         /// <returns></returns>
         public VlcCommandBuilder SetEmbedded(bool embedded)
         {
-            SetBoolean(embedded, "--embedded-video", "--no-embedded-video");
+            this.SetBoolean(embedded, "--embedded-video", "--no-embedded-video");
 
             return this;
         }
@@ -47,7 +48,8 @@
         /// <returns></returns>
         public VlcCommandBuilder SetWidth(int width)
         {
-            SetString("--width", width.ToString());
+            this.SetString("--width", width.ToString());
+
             return this;
         }
 
@@ -58,7 +60,8 @@
         /// <returns></returns>
         public VlcCommandBuilder SetHeight(int height)
         {
-            SetString("--height", height.ToString());
+            this.SetString("--height", height.ToString());
+
             return this;
         }
 
@@ -69,7 +72,8 @@
         /// <returns></returns>
         public VlcCommandBuilder SetXPos(int xpos)
         {
-            SetString("--video-x", xpos.ToString());
+            this.SetString("--video-x", xpos.ToString());
+
             return this;
         }
 
@@ -80,7 +84,8 @@
         /// <returns></returns>
         public VlcCommandBuilder SetYPos(int ypos)
         {
-            SetString("--video-y", ypos.ToString());
+            this.SetString("--video-y", ypos.ToString());
+
             return this;
         }
 
@@ -91,7 +96,7 @@
         /// <returns></returns>
         public VlcCommandBuilder SetVideoTitleShow(bool showTitle)
         {
-            SetBoolean(showTitle, "--video-title-show", "--no-video-title-show");
+            this.SetBoolean(showTitle, "--video-title-show", "--no-video-title-show");
 
             return this;
         }

@@ -4,7 +4,7 @@ using System;
 
 namespace D16.VideoCommander
 {
-    public partial class AddDialog : Form
+    internal partial class AddDialog : Form
     {
         private System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDialog));
 

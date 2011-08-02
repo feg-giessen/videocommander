@@ -5,7 +5,7 @@ namespace D16.VideoCommander
     /// <summary>
     /// Play list item
     /// </summary>
-    class VlcFile : VlcArgumentBuilder
+    internal class VlcFile : VlcArgumentBuilder
     {
         /// <summary>
         /// Path to the video file.
@@ -28,7 +28,7 @@ namespace D16.VideoCommander
         /// <returns></returns>
         public VlcFile SetStartTime(int seconds)
         {
-            SetString(":start-time", seconds.ToString());
+            this.SetString(":start-time", seconds.ToString());
 
             return this;
         }
@@ -40,7 +40,7 @@ namespace D16.VideoCommander
         /// <returns></returns>
         public VlcFile SetEndTime(int seconds)
         {
-            SetString(":stop-time", seconds.ToString());
+            this.SetString(":stop-time", seconds.ToString());
 
             return this;
         }
@@ -52,7 +52,7 @@ namespace D16.VideoCommander
         /// <returns></returns>
         public VlcFile SetDuration(int seconds)
         {
-            SetString(":run-time", seconds.ToString());
+            this.SetString(":run-time", seconds.ToString());
 
             return this;
         }
@@ -63,7 +63,7 @@ namespace D16.VideoCommander
         /// <returns></returns>
         public override string GetArgumentString()
         {
-            return String.Format("\"{0}\" {1}", fileName, base.GetArgumentString());
+            return String.Format("\"{0}\" {1}", this.fileName, base.GetArgumentString());
         }
     }
 }

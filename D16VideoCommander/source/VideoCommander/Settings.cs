@@ -5,14 +5,14 @@ namespace D16.VideoCommander
     /// <summary>
     /// Formular for general vlc settings.
     /// </summary>
-    public partial class Settings : Form
+    internal partial class Settings : Form
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Settings" /> class.
         /// </summary>
         public Settings()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         /// <summary>
@@ -20,8 +20,8 @@ namespace D16.VideoCommander
         /// </summary>
         public string Language
         {
-            get { return txbSprache.Text; }
-            set { txbSprache.Text = value; }
+            get { return this.txbSprache.Text; }
+            set { this.txbSprache.Text = value; }
         }
 
         /// <summary>
@@ -29,8 +29,8 @@ namespace D16.VideoCommander
         /// </summary>
         public bool ShowVideoTitle
         {
-            get { return chkVideoTitel.Checked; }
-            set { chkVideoTitel.Checked = value; }
+            get { return this.chkVideoTitel.Checked; }
+            set { this.chkVideoTitel.Checked = value; }
         }
     }
 }

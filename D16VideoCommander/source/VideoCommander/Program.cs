@@ -1,8 +1,8 @@
-﻿using System.Windows.Forms;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace D16.VideoCommander
 {
