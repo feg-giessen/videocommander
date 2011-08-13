@@ -29,6 +29,8 @@ namespace D16.VideoCommander
 
         private PlaylistSerializer playlistSerializer;
 
+        private System.Threading.Timer mouseTimer;
+
         private DisplaySetting GetActiveDisplay()
         {
             if (rbnDisplay1.Checked)
@@ -48,6 +50,19 @@ namespace D16.VideoCommander
 
             settingSerializer = new DisplaySettingSerializer();
             playlistSerializer = new PlaylistSerializer();
+
+            mouseTimer = new System.Threading.Timer(DisplayMousePosition);
+
+            this.Disposed += Main_Disposed;
+        }
+
+        private void Main_Disposed(object sender, EventArgs e)
+        {
+            if (this.mouseTimer != null)
+            {
+                this.mouseTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+                this.mouseTimer.Dispose();
+            }
         }
 
         private bool TryGetVlcPath(out string path)
@@ -427,6 +442,27 @@ namespace D16.VideoCommander
         private void btnSettings_Click(object sender, EventArgs e)
         {
             settingsDialog.ShowDialog();
+        }
+
+        private void DisplayMousePosition(object state)
+        {
+            this.Invoke((MethodInvoker)delegate
+            {
+                lbMousePosition.Text = "X: " + System.Windows.Forms.Cursor.Position.X + " / Y: " + System.Windows.Forms.Cursor.Position.Y;
+            });
+        }
+
+        private void cbMousePosition_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMousePosition.Checked)
+            {
+                mouseTimer.Change(0, 500);
+            }
+            else
+            {
+                mouseTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+                lbMousePosition.Text = string.Empty;
+            }
         }
     }
 }

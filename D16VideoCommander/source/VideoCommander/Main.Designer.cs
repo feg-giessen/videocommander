@@ -32,7 +32,6 @@
             this.rbnDisplay1 = new System.Windows.Forms.RadioButton();
             this.rbnDisplay2 = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblHeight = new System.Windows.Forms.Label();
             this.lblWidth = new System.Windows.Forms.Label();
             this.lblYPos = new System.Windows.Forms.Label();
             this.lblXPos = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.chkCloseAfterPlay = new System.Windows.Forms.CheckBox();
             this.chkEmbedded = new System.Windows.Forms.CheckBox();
             this.chkFullscreen = new System.Windows.Forms.CheckBox();
+            this.lblHeight = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnPlay = new System.Windows.Forms.Button();
             this.playlist = new System.Windows.Forms.ListView();
@@ -58,6 +58,8 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.playlistOpenDialog = new System.Windows.Forms.OpenFileDialog();
             this.btnSettings = new System.Windows.Forms.Button();
+            this.cbMousePosition = new System.Windows.Forms.CheckBox();
+            this.lbMousePosition = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.valHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valWidth)).BeginInit();
@@ -97,11 +99,6 @@
             this.panel1.Controls.Add(this.chkFullscreen);
             this.panel1.Controls.Add(this.lblHeight);
             this.panel1.Name = "panel1";
-            // 
-            // lblHeight
-            // 
-            resources.ApplyResources(this.lblHeight, "lblHeight");
-            this.lblHeight.Name = "lblHeight";
             // 
             // lblWidth
             // 
@@ -167,7 +164,7 @@
             0,
             0});
             this.valYPos.Minimum = new decimal(new int[] {
-            1,
+            10000,
             0,
             0,
             -2147483648});
@@ -187,7 +184,7 @@
             0,
             0});
             this.valXPos.Minimum = new decimal(new int[] {
-            1,
+            10000,
             0,
             0,
             -2147483648});
@@ -215,6 +212,11 @@
             resources.ApplyResources(this.chkFullscreen, "chkFullscreen");
             this.chkFullscreen.Name = "chkFullscreen";
             this.chkFullscreen.UseVisualStyleBackColor = true;
+            // 
+            // lblHeight
+            // 
+            resources.ApplyResources(this.lblHeight, "lblHeight");
+            this.lblHeight.Name = "lblHeight";
             // 
             // panel2
             // 
@@ -316,10 +318,24 @@
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
+            // cbMousePosition
+            // 
+            resources.ApplyResources(this.cbMousePosition, "cbMousePosition");
+            this.cbMousePosition.Name = "cbMousePosition";
+            this.cbMousePosition.UseVisualStyleBackColor = true;
+            this.cbMousePosition.CheckedChanged += new System.EventHandler(this.cbMousePosition_CheckedChanged);
+            // 
+            // lbMousePosition
+            // 
+            resources.ApplyResources(this.lbMousePosition, "lbMousePosition");
+            this.lbMousePosition.Name = "lbMousePosition";
+            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbMousePosition);
+            this.Controls.Add(this.cbMousePosition);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnSave);
@@ -380,5 +396,7 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.OpenFileDialog playlistOpenDialog;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.CheckBox cbMousePosition;
+        private System.Windows.Forms.Label lbMousePosition;
     }
 }

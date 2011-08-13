@@ -195,4 +195,7 @@
   <data name="rbnDisplay2.Text" xml:space="preserve">
     <value>Live</value>
   </data>
+  <data name="cbMousePosition.Text" xml:space="preserve">
+    <value>Show mouse position</value>
+  </data>
 </root>
