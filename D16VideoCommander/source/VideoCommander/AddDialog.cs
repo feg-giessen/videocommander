@@ -1,6 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Linq;
 using System.IO;
-using System;
+using System.Windows.Forms;
 
 namespace D16.VideoCommander
 {
@@ -57,7 +58,7 @@ namespace D16.VideoCommander
 
         private void btnOk_Click(object sender, System.EventArgs e)
         {
-            if (!Video.StartsWith("dvdsimple:") && !File.Exists(Video))
+            if (!this.Video.StartsWith("dvdsimple:") && !File.Exists(this.Video))
             {
                 MessageBox.Show(resources.GetString("Error.NoFile"), resources.GetString("Error.NoFile.Title"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -70,11 +71,11 @@ namespace D16.VideoCommander
 
         private void btnBrowse_Click(object sender, System.EventArgs e)
         {
-            fileDialog.InitialDirectory = Video;
+            fileDialog.InitialDirectory = this.Video;
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                Video = fileDialog.FileName;
+                this.Video = fileDialog.FileName;
             }
         }
 
@@ -85,6 +86,18 @@ namespace D16.VideoCommander
             mtbStart.ResetText();
             mtbEnd.ResetText();
             mtbDuration.ResetText();        
+        }
+
+        private void btnDVD_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (string.IsNullOrEmpty(folderBrowserDialog.SelectedPath))
+                    return;
+
+                var volume = folderBrowserDialog.SelectedPath.Split(Path.VolumeSeparatorChar).First();
+                this.Video = "dvdsimple://" + volume + ":";
+            }
         }
     }
 }

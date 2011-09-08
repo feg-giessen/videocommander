@@ -117,40 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Add video...</value>
-  </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="btnOk.Text" xml:space="preserve">
-    <value>Ok</value>
-  </data>
   <data name="Error.NoFile" xml:space="preserve">
-    <value>Please specify a valid video file.</value>
+    <value>Bitte geben Sie eine gültige Video-Datei an.</value>
   </data>
   <data name="Error.NoFile.Title" xml:space="preserve">
-    <value>File does not exist...</value>
-  </data>
-  <data name="fileDialog.Title" xml:space="preserve">
-    <value>Select a video file...</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Advanced</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Advanced</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Start:</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>End:</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Duration:</value>
-  </data>
-  <data name="folderBrowserDialog.Description" xml:space="preserve">
-    <value>Choose the dvd drive for usage...</value>
+    <value>Die Datei existiert nicht...</value>
   </data>
 </root>

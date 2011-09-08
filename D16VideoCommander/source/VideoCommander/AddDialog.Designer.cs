@@ -42,6 +42,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnDVD = new System.Windows.Forms.Button();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,6 +127,19 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
+            // btnDVD
+            // 
+            resources.ApplyResources(this.btnDVD, "btnDVD");
+            this.btnDVD.Name = "btnDVD";
+            this.btnDVD.UseVisualStyleBackColor = true;
+            this.btnDVD.Click += new System.EventHandler(this.btnDVD_Click);
+            // 
+            // folderBrowserDialog
+            // 
+            resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
+            this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
+            this.folderBrowserDialog.ShowNewFolderButton = false;
+            // 
             // AddDialog
             // 
             this.AcceptButton = this.btnOk;
@@ -134,6 +149,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txbPath);
+            this.Controls.Add(this.btnDVD);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
@@ -165,5 +181,7 @@
         private System.Windows.Forms.MaskedTextBox mtbEnd;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox mtbDuration;
+        private System.Windows.Forms.Button btnDVD;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }

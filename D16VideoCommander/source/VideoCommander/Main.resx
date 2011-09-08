@@ -519,6 +519,21 @@
   <data name="&gt;&gt;btnPlay.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="columnHeader1.Text" xml:space="preserve">
+    <value>Datei</value>
+  </data>
+  <data name="columnHeader1.Width" type="System.Int32, mscorlib">
+    <value>344</value>
+  </data>
+  <data name="columnHeader2.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="columnHeader3.Text" xml:space="preserve">
+    <value>Ende</value>
+  </data>
+  <data name="columnHeader4.Text" xml:space="preserve">
+    <value>Dauer</value>
+  </data>
   <data name="playlist.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
@@ -539,21 +554,6 @@
   </data>
   <data name="&gt;&gt;playlist.ZOrder" xml:space="preserve">
     <value>8</value>
-  </data>
-  <data name="columnHeader1.Text" xml:space="preserve">
-    <value>Datei</value>
-  </data>
-  <data name="columnHeader1.Width" type="System.Int32, mscorlib">
-    <value>344</value>
-  </data>
-  <data name="columnHeader2.Text" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Ende</value>
-  </data>
-  <data name="columnHeader4.Text" xml:space="preserve">
-    <value>Dauer</value>
   </data>
   <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
     <value>545, 260</value>
