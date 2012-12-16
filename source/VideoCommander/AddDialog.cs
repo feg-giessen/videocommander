@@ -96,7 +96,7 @@ namespace D16.VideoCommander
                     return;
 
                 var volume = folderBrowserDialog.SelectedPath.Split(Path.VolumeSeparatorChar).First();
-                this.Video = "dvdsimple://" + volume + ":";
+                this.Video = "dvdsimple:///" + volume + ":";
             }
         }
     }
