@@ -97,6 +97,13 @@ namespace D16.VideoCommander
 
                 var volume = folderBrowserDialog.SelectedPath.Split(Path.VolumeSeparatorChar).First();
                 this.Video = "dvdsimple:///" + volume + ":";
+
+                using (var dvdSettings = new DvdSetting(this.Video))
+                {
+                    dvdSettings.ShowDialog();
+
+                    this.Video = dvdSettings.Path;
+                }
             }
         }
     }
