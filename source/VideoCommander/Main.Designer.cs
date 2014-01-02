@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.rbnDisplay1 = new System.Windows.Forms.RadioButton();
             this.rbnDisplay2 = new System.Windows.Forms.RadioButton();
@@ -45,11 +46,6 @@
             this.lblHeight = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnPlay = new System.Windows.Forms.Button();
-            this.playlist = new CustomListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblVersion = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
@@ -60,12 +56,24 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.cbMousePosition = new System.Windows.Forms.CheckBox();
             this.lbMousePosition = new System.Windows.Forms.Label();
+            this.menuPlaylist = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.playlist = new D16.VideoCommander.CustomListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.valHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valYPos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valXPos)).BeginInit();
             this.panel2.SuspendLayout();
+            this.menuPlaylist.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbnDisplay1
@@ -231,47 +239,15 @@
             // 
             resources.ApplyResources(this.btnPlay, "btnPlay");
             this.btnPlay.Name = "btnPlay";
+            this.toolTip.SetToolTip(this.btnPlay, resources.GetString("btnPlay.ToolTip"));
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
-            // playlist
-            // 
-            this.playlist.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.playlist.FullRowSelect = true;
-            this.playlist.GridLines = true;
-            this.playlist.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            resources.ApplyResources(this.playlist, "playlist");
-            this.playlist.MultiSelect = false;
-            this.playlist.Name = "playlist";
-            this.playlist.UseCompatibleStateImageBehavior = false;
-            this.playlist.View = System.Windows.Forms.View.Details;
-            this.playlist.DoubleClick += new System.EventHandler(this.playlist_DoubleClick);
-            this.playlist.KeyUp += new System.Windows.Forms.KeyEventHandler(this.playlist_KeyUp);
-            // 
-            // columnHeader1
-            // 
-            resources.ApplyResources(this.columnHeader1, "columnHeader1");
-            // 
-            // columnHeader2
-            // 
-            resources.ApplyResources(this.columnHeader2, "columnHeader2");
-            // 
-            // columnHeader3
-            // 
-            resources.ApplyResources(this.columnHeader3, "columnHeader3");
-            // 
-            // columnHeader4
-            // 
-            resources.ApplyResources(this.columnHeader4, "columnHeader4");
             // 
             // btnAdd
             // 
             resources.ApplyResources(this.btnAdd, "btnAdd");
             this.btnAdd.Name = "btnAdd";
+            this.toolTip.SetToolTip(this.btnAdd, resources.GetString("btnAdd.ToolTip"));
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -284,6 +260,7 @@
             // 
             resources.ApplyResources(this.btnClear, "btnClear");
             this.btnClear.Name = "btnClear";
+            this.toolTip.SetToolTip(this.btnClear, resources.GetString("btnClear.ToolTip"));
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -291,6 +268,7 @@
             // 
             resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.Name = "btnSave";
+            this.toolTip.SetToolTip(this.btnSave, resources.GetString("btnSave.ToolTip"));
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -303,6 +281,7 @@
             // 
             resources.ApplyResources(this.btnLoad, "btnLoad");
             this.btnLoad.Name = "btnLoad";
+            this.toolTip.SetToolTip(this.btnLoad, resources.GetString("btnLoad.ToolTip"));
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
@@ -330,6 +309,75 @@
             // 
             resources.ApplyResources(this.lbMousePosition, "lbMousePosition");
             this.lbMousePosition.Name = "lbMousePosition";
+            // 
+            // menuPlaylist
+            // 
+            this.menuPlaylist.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiAdd,
+            this.toolStripMenuItem1,
+            this.tsmiEdit,
+            this.tsmiDelete});
+            this.menuPlaylist.Name = "menuPlaylist";
+            resources.ApplyResources(this.menuPlaylist, "menuPlaylist");
+            this.menuPlaylist.Opening += new System.ComponentModel.CancelEventHandler(this.menuPlaylist_Opening);
+            // 
+            // tsmiAdd
+            // 
+            this.tsmiAdd.Name = "tsmiAdd";
+            resources.ApplyResources(this.tsmiAdd, "tsmiAdd");
+            this.tsmiAdd.Click += new System.EventHandler(this.tsmiAdd_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            // 
+            // tsmiEdit
+            // 
+            this.tsmiEdit.Name = "tsmiEdit";
+            resources.ApplyResources(this.tsmiEdit, "tsmiEdit");
+            this.tsmiEdit.Click += new System.EventHandler(this.tsmiEdit_Click);
+            // 
+            // tsmiDelete
+            // 
+            this.tsmiDelete.Name = "tsmiDelete";
+            resources.ApplyResources(this.tsmiDelete, "tsmiDelete");
+            this.tsmiDelete.Click += new System.EventHandler(this.tsmiDelete_Click);
+            // 
+            // playlist
+            // 
+            this.playlist.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.playlist.ContextMenuStrip = this.menuPlaylist;
+            this.playlist.FullRowSelect = true;
+            this.playlist.GridLines = true;
+            this.playlist.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            resources.ApplyResources(this.playlist, "playlist");
+            this.playlist.MultiSelect = false;
+            this.playlist.Name = "playlist";
+            this.playlist.UseCompatibleStateImageBehavior = false;
+            this.playlist.View = System.Windows.Forms.View.Details;
+            this.playlist.DoubleClick += new System.EventHandler(this.playlist_DoubleClick);
+            this.playlist.KeyUp += new System.Windows.Forms.KeyEventHandler(this.playlist_KeyUp);
+            // 
+            // columnHeader1
+            // 
+            resources.ApplyResources(this.columnHeader1, "columnHeader1");
+            // 
+            // columnHeader2
+            // 
+            resources.ApplyResources(this.columnHeader2, "columnHeader2");
+            // 
+            // columnHeader3
+            // 
+            resources.ApplyResources(this.columnHeader3, "columnHeader3");
+            // 
+            // columnHeader4
+            // 
+            resources.ApplyResources(this.columnHeader4, "columnHeader4");
             // 
             // Main
             // 
@@ -361,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.valYPos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valXPos)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.menuPlaylist.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,5 +448,11 @@
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.CheckBox cbMousePosition;
         private System.Windows.Forms.Label lbMousePosition;
+        private System.Windows.Forms.ContextMenuStrip menuPlaylist;
+        private System.Windows.Forms.ToolStripMenuItem tsmiAdd;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiEdit;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDelete;
     }
 }

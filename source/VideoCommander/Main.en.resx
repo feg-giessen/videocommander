@@ -198,4 +198,28 @@
   <data name="cbMousePosition.Text" xml:space="preserve">
     <value>Show mouse position</value>
   </data>
+  <data name="btnAdd.ToolTip" xml:space="preserve">
+    <value>Add video...</value>
+  </data>
+  <data name="btnClear.ToolTip" xml:space="preserve">
+    <value>Clear all items from the playlist.</value>
+  </data>
+  <data name="btnLoad.ToolTip" xml:space="preserve">
+    <value>Load complete playlist from file...</value>
+  </data>
+  <data name="btnPlay.ToolTip" xml:space="preserve">
+    <value>Start playlist in VLC</value>
+  </data>
+  <data name="btnSave.ToolTip" xml:space="preserve">
+    <value>Save complete playlist to file...</value>
+  </data>
+  <data name="tsmiAdd.Text" xml:space="preserve">
+    <value>Add video...</value>
+  </data>
+  <data name="tsmiDelete.Text" xml:space="preserve">
+    <value>Delete item</value>
+  </data>
+  <data name="tsmiEdit.Text" xml:space="preserve">
+    <value>Edit item...</value>
+  </data>
 </root>

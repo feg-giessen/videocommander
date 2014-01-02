@@ -479,5 +479,40 @@ namespace D16.VideoCommander
                 lbMousePosition.Text = string.Empty;
             }
         }
+
+        private void tsmiAdd_Click(object sender, EventArgs e)
+        {
+            this.AddPlaylistItem();
+        }
+
+        private void menuPlaylist_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            System.Windows.Forms.ListView.SelectedListViewItemCollection items = playlist.SelectedItems;
+
+            bool enabled = items != null && items.Count == 1;
+
+            tsmiEdit.Enabled = enabled;
+            tsmiDelete.Enabled = enabled;
+        }
+
+        private void tsmiEdit_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ListView.SelectedListViewItemCollection items = playlist.SelectedItems;
+
+            if (items == null || items.Count == 0)
+                return;
+
+            this.EditPlaylistItem(items[0]);
+        }
+
+        private void tsmiDelete_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ListView.SelectedListViewItemCollection items = playlist.SelectedItems;
+
+            if (items == null || items.Count == 0)
+                return;
+            
+            playlist.Items.Remove(items[0]);
+        }
     }
 }
