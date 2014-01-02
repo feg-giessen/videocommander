@@ -80,6 +80,9 @@
       <DependentUpon>AddDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="ConfigManager.cs" />
+    <Compile Include="CustomListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DisplaySetting.cs" />
     <Compile Include="DisplaySettingSerializer.cs" />
     <Compile Include="DvdSetting.cs">

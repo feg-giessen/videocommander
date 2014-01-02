@@ -45,7 +45,7 @@
             this.lblHeight = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnPlay = new System.Windows.Forms.Button();
-            this.playlist = new System.Windows.Forms.ListView();
+            this.playlist = new CustomListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -243,6 +243,7 @@
             this.columnHeader4});
             this.playlist.FullRowSelect = true;
             this.playlist.GridLines = true;
+            this.playlist.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             resources.ApplyResources(this.playlist, "playlist");
             this.playlist.MultiSelect = false;
             this.playlist.Name = "playlist";
@@ -383,7 +384,7 @@
         private System.Windows.Forms.CheckBox chkEmbedded;
         private System.Windows.Forms.CheckBox chkCloseAfterPlay;
         private System.Windows.Forms.Button btnPlay;
-        private System.Windows.Forms.ListView playlist;
+        private CustomListView playlist;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;

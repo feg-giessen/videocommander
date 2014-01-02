@@ -315,6 +315,11 @@ namespace D16.VideoCommander
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            this.AddPlaylistItem();
+        }
+
+        private void AddPlaylistItem()
+        {
             addDialog.ResetTexts();
 
             if (addDialog.ShowDialog() == DialogResult.OK)
@@ -323,9 +328,28 @@ namespace D16.VideoCommander
                 {
                     Text = addDialog.Video,
                 };
-                item.SubItems.AddRange(new [] { addDialog.StartTime, addDialog.EndTime, addDialog.Duration });
+                item.SubItems.AddRange(new[] { addDialog.StartTime, addDialog.EndTime, addDialog.Duration });
 
                 playlist.Items.Add(item);
+            }
+        }
+
+        private void EditPlaylistItem(ListViewItem item)
+        {
+            if (item == null)
+                return;
+            
+            addDialog.Video = item.Text;
+            addDialog.StartTime = item.SubItems[1].Text;
+            addDialog.EndTime = item.SubItems[2].Text;
+            addDialog.Duration = item.SubItems[3].Text;
+
+            if (addDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                item.Text = addDialog.Video;
+                item.SubItems[1].Text = addDialog.StartTime;
+                item.SubItems[2].Text = addDialog.EndTime;
+                item.SubItems[3].Text = addDialog.Duration;
             }
         }
 
@@ -421,21 +445,12 @@ namespace D16.VideoCommander
             System.Windows.Forms.ListView.SelectedListViewItemCollection items = playlist.SelectedItems;
 
             if (items == null || items.Count == 0)
-                return;
-
-            ListViewItem item = items[0];
-
-            addDialog.Video = item.Text;
-            addDialog.StartTime = item.SubItems[1].Text;
-            addDialog.EndTime = item.SubItems[2].Text;
-            addDialog.Duration = item.SubItems[3].Text;
-
-            if (addDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                item.Text = addDialog.Video;
-                item.SubItems[1].Text = addDialog.StartTime;
-                item.SubItems[2].Text = addDialog.EndTime;
-                item.SubItems[3].Text = addDialog.Duration;
+                this.AddPlaylistItem();
+            }
+            else
+            {
+                this.EditPlaylistItem(items[0]);
             }
         }
 
