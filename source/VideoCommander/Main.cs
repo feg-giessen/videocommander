@@ -41,7 +41,11 @@ namespace D16.VideoCommander
 
         public Main()
         {
-            InitializeComponent();
+            this.InitializeComponent();
+
+            this.AllowDrop = true;
+            this.DragEnter += MainDragEnter;
+            this.DragDrop += MainDragDrop;
 
             addDialog = new AddDialog();
             settingsDialog = new Settings();
@@ -54,6 +58,27 @@ namespace D16.VideoCommander
             mouseTimer = new System.Threading.Timer(DisplayMousePosition);
 
             this.Disposed += Main_Disposed;
+        }
+
+        private void MainDragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Link;
+            }
+        }
+
+        private void MainDragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
+            if (files == null)
+                return;
+
+            foreach (string file in files)
+            {
+                var item = playlist.Items.Add(file);
+                item.SubItems.AddRange(new[] { string.Empty, string.Empty, string.Empty });
+            }
         }
 
         private void Main_Disposed(object sender, EventArgs e)
