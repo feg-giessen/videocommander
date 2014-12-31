@@ -11,7 +11,7 @@ namespace D16.VideoCommander
 
         public AddDialog()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         /// <summary>
@@ -19,83 +19,82 @@ namespace D16.VideoCommander
         /// </summary>
         public string Video
         {
-            get
-            {
-                return txbPath.Text;
-            }
-            set
-            {
-                txbPath.Text = value;
-            }
+            get { return this.txbPath.Text; }
+            set { this.txbPath.Text = value; }
         }
 
         private string ConvertTimeString(string timeString)
         {
-            string raw = timeString.Replace(":", String.Empty);
+            string raw = timeString.Replace(":", string.Empty);
+
             if (raw.Trim().Length == 0 || Convert.ToInt32(raw) == 0)
-                return String.Empty;
+                return string.Empty;
 
             return timeString.Replace(' ', '0');
         }
 
         public string StartTime
         {
-            get { return ConvertTimeString(mtbStart.Text); }
-            set { mtbStart.Text = value; }
+            get { return this.ConvertTimeString(this.mtbStart.Text); }
+            set { this.mtbStart.Text = value; }
         }
 
         public string EndTime
         {
-            get { return ConvertTimeString(mtbEnd.Text); }
-            set { mtbEnd.Text = value; }
+            get { return this.ConvertTimeString(this.mtbEnd.Text); }
+            set { this.mtbEnd.Text = value; }
         }
 
         public string Duration
         {
-            get { return ConvertTimeString(mtbDuration.Text); }
-            set { mtbDuration.Text = value; }
+            get { return this.ConvertTimeString(this.mtbDuration.Text); }
+            set { this.mtbDuration.Text = value; }
         }
 
         private void btnOk_Click(object sender, System.EventArgs e)
         {
             if (!this.Video.StartsWith("dvdsimple:") && !File.Exists(this.Video))
             {
-                MessageBox.Show(resources.GetString("Error.NoFile"), resources.GetString("Error.NoFile.Title"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(
+                    this.resources.GetString("Error.NoFile"), 
+                    this.resources.GetString("Error.NoFile.Title"), 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Exclamation);
             }
             else
             {
-                DialogResult = DialogResult.OK;
-                Close();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
 
         private void btnBrowse_Click(object sender, System.EventArgs e)
         {
-            fileDialog.InitialDirectory = this.Video;
+            this.fileDialog.InitialDirectory = this.Video;
 
-            if (fileDialog.ShowDialog() == DialogResult.OK)
+            if (this.fileDialog.ShowDialog() == DialogResult.OK)
             {
-                this.Video = fileDialog.FileName;
+                this.Video = this.fileDialog.FileName;
             }
         }
 
         public void ResetTexts()
         {
-            txbPath.ResetText();
+            this.txbPath.ResetText();
 
-            mtbStart.ResetText();
-            mtbEnd.ResetText();
-            mtbDuration.ResetText();        
+            this.mtbStart.ResetText();
+            this.mtbEnd.ResetText();
+            this.mtbDuration.ResetText();        
         }
 
         private void btnDVD_Click(object sender, EventArgs e)
         {
-            if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                if (string.IsNullOrEmpty(folderBrowserDialog.SelectedPath))
+                if (string.IsNullOrEmpty(this.folderBrowserDialog.SelectedPath))
                     return;
 
-                var volume = folderBrowserDialog.SelectedPath.Split(Path.VolumeSeparatorChar).First();
+                string volume = this.folderBrowserDialog.SelectedPath.Split(Path.VolumeSeparatorChar).First();
                 this.Video = "dvdsimple:///" + volume + ":";
 
                 using (var dvdSettings = new DvdSetting(this.Video))

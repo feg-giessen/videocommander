@@ -31,6 +31,8 @@ namespace D16.VideoCommander
 
         private System.Threading.Timer mouseTimer;
 
+        private ListViewExtender playlistExtender;
+
         private DisplaySetting GetActiveDisplay()
         {
             if (rbnDisplay1.Checked)
@@ -43,35 +45,33 @@ namespace D16.VideoCommander
         {
             this.InitializeComponent();
 
-            var extender = new ListViewExtender(this.playlist);
+            this.playlistExtender = new ListViewExtender(this.playlist);
 
             // extend 2nd column
             var buttonAction = new ListViewButtonColumn(this.playlist.Columns.Count - 1);
             buttonAction.Click += this.PlaySingleAction;
             buttonAction.FixedWidth = true;
 
-            extender.AddColumn(buttonAction);
-
-            this.AllowDrop = true;
+            this.playlistExtender.AddColumn(buttonAction);
             this.DragEnter += MainDragEnter;
             this.DragDrop += MainDragDrop;
 
-            addDialog = new AddDialog();
-            settingsDialog = new Settings();
+            this.addDialog = new AddDialog();
+            this.settingsDialog = new Settings();
 
-            lblVersion.Text = String.Format("Version {0} [peter@d16.de]", Application.ProductVersion);
+            this.lblVersion.Text = string.Format("Version {0} [peter@d16.de]", Application.ProductVersion);
 
-            settingSerializer = new DisplaySettingSerializer();
-            playlistSerializer = new PlaylistSerializer();
+            this.settingSerializer = new DisplaySettingSerializer();
+            this.playlistSerializer = new PlaylistSerializer();
 
-            mouseTimer = new System.Threading.Timer(DisplayMousePosition);
+            this.mouseTimer = new System.Threading.Timer(DisplayMousePosition);
 
             this.Disposed += Main_Disposed;
         }
 
         private void PlaySingleAction(object sender, ListViewColumnMouseEventArgs e)
         {
-            this.ExecutePlaylist(new [] { e.Item });
+            this.ExecutePlaylist(new[] { e.Item });
         }
 
         private void MainDragEnter(object sender, DragEventArgs e)
@@ -84,7 +84,8 @@ namespace D16.VideoCommander
 
         private void MainDragDrop(object sender, DragEventArgs e)
         {
-            string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
+            var files = e.Data.GetData(DataFormats.FileDrop) as string[];
+
             if (files == null)
                 return;
 
@@ -107,26 +108,28 @@ namespace D16.VideoCommander
         private bool TryGetVlcPath(out string path)
         {
             path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), @"VideoLAN\VLC\vlc.exe");
-            
+
             return File.Exists(path);
         }
 
         private void Main_Shown(object sender, EventArgs e)
         {
+            this.AllowDrop = true;
+
             string storedPath = Properties.Settings.Default.VlcPath;
 
-            if (String.IsNullOrEmpty(storedPath))
+            if (string.IsNullOrEmpty(storedPath))
                 storedPath = ConfigManager.GetValue("defaultVlcPath");
-            
-            if (!String.IsNullOrEmpty(storedPath) && File.Exists(storedPath))
+
+            if (!string.IsNullOrEmpty(storedPath) && File.Exists(storedPath))
             {
                 this.vlcPath = storedPath;
             }
             else if (!TryGetVlcPath(out this.vlcPath))
             {
-                using (OpenFileDialog fileDialog = new OpenFileDialog())
+                using (var fileDialog = new OpenFileDialog())
                 {
-                    fileDialog.Filter = "exe|*.exe";
+                    fileDialog.Filter = @"exe|*.exe";
                     fileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
                     fileDialog.CheckFileExists = true;
                     fileDialog.RestoreDirectory = true;
@@ -152,7 +155,7 @@ namespace D16.VideoCommander
         {
             chkFullscreen.DataBindings.Clear();
             chkFullscreen.DataBindings.Add(new Binding("Checked", setting, "Fullscreen", false, DataSourceUpdateMode.OnPropertyChanged));
-            
+
             chkEmbedded.DataBindings.Clear();
             chkEmbedded.DataBindings.Add(new Binding("Checked", setting, "Embedded", false, DataSourceUpdateMode.OnPropertyChanged));
 
@@ -231,7 +234,7 @@ namespace D16.VideoCommander
             InitializeFormPosition();
 
             string language = Properties.Settings.Default.AudioLanguage;
-            if (String.IsNullOrEmpty(language))
+            if (string.IsNullOrEmpty(language))
                 language = "de";
 
             bool showTitle = Properties.Settings.Default.ShowVideoTitle;
@@ -331,22 +334,24 @@ namespace D16.VideoCommander
                 .SetXPos(setting.XPos)
                 .SetYPos(setting.YPos);
 
-            List<VlcArgumentBuilder> commands = new List<VlcArgumentBuilder>();
-            commands.Add(general);
+            var commands = new List<VlcArgumentBuilder>
+            {
+                general
+            };
 
             foreach (ListViewItem item in items)
             {
                 var file = new VlcFile(item.Text);
 
-                if (item.SubItems.Count > 1 && !String.IsNullOrEmpty(item.SubItems[1].Text))
+                if (item.SubItems.Count > 1 && !string.IsNullOrEmpty(item.SubItems[1].Text))
                 {
                     file.SetStartTime((int)TimeHelpers.FromFormatedString(item.SubItems[1].Text).TotalSeconds);
                 }
-                if (item.SubItems.Count > 2 && !String.IsNullOrEmpty(item.SubItems[2].Text))
+                if (item.SubItems.Count > 2 && !string.IsNullOrEmpty(item.SubItems[2].Text))
                 {
                     file.SetEndTime((int)TimeHelpers.FromFormatedString(item.SubItems[2].Text).TotalSeconds);
                 }
-                if (item.SubItems.Count > 3 && !String.IsNullOrEmpty(item.SubItems[3].Text))
+                if (item.SubItems.Count > 3 && !string.IsNullOrEmpty(item.SubItems[3].Text))
                 {
                     file.SetDuration((int)TimeHelpers.FromFormatedString(item.SubItems[3].Text).TotalSeconds);
                 }
@@ -382,13 +387,13 @@ namespace D16.VideoCommander
         {
             if (item == null)
                 return;
-            
+
             addDialog.Video = item.Text;
             addDialog.StartTime = item.SubItems[1].Text;
             addDialog.EndTime = item.SubItems[2].Text;
             addDialog.Duration = item.SubItems[3].Text;
 
-            if (addDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (addDialog.ShowDialog() == DialogResult.OK)
             {
                 item.Text = addDialog.Video;
                 item.SubItems[1].Text = addDialog.StartTime;
@@ -404,7 +409,7 @@ namespace D16.VideoCommander
 
             if (e.KeyCode == Keys.Delete)
             {
-                foreach (ListViewItem item in playlist.SelectedItems) 
+                foreach (ListViewItem item in playlist.SelectedItems)
                 {
                     playlist.Items.Remove(item);
                 }
@@ -413,8 +418,13 @@ namespace D16.VideoCommander
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(resources.GetString("Message.Clear"), resources.GetString("Message.Clear.Title"), MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                == System.Windows.Forms.DialogResult.Yes)
+            var result = MessageBox.Show(
+                resources.GetString("Message.Clear"), 
+                resources.GetString("Message.Clear.Title"), 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
                 playlist.Items.Clear();
             }
@@ -424,7 +434,7 @@ namespace D16.VideoCommander
         {
             if (TaskbarManager.IsPlatformSupported)
             {
-                JumpList.AddToRecent(fileName);                
+                JumpList.AddToRecent(fileName);
 
                 if (this.Visible)
                 {
@@ -436,25 +446,22 @@ namespace D16.VideoCommander
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (playlistSaveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (playlistSaveDialog.ShowDialog() == DialogResult.OK)
             {
-                List<ListViewItem> items = new List<ListViewItem>();
-                foreach (var item in playlist.Items) 
-                {
-                    items.Add((ListViewItem)item);
-                }
+                var items = this.playlist.Items.Cast<ListViewItem>().ToList();
 
                 XmlDocument doc = playlistSerializer.Serialize(items);
                 doc.Save(playlistSaveDialog.FileName);
 
-                AddToJumplist(playlistSaveDialog.FileName);
+                this.AddToJumplist(playlistSaveDialog.FileName);
             }
         }
 
         public void LoadPlaylist(string filename)
         {
-            XmlDocument doc = new XmlDocument();
-            try 
+            var doc = new XmlDocument();
+
+            try
             {
                 doc.Load(filename);
                 IEnumerable<ListViewItem> items = playlistSerializer.Deserialize(doc);
@@ -464,21 +471,27 @@ namespace D16.VideoCommander
                     playlist.Items.AddRange(items.ToArray());
                 }
 
-                AddToJumplist(filename);
+                this.AddToJumplist(filename);
             }
             catch (Exception exception)
             {
                 Trace.TraceError(exception.ToString());
 
-                MessageBox.Show(String.Concat(resources.GetString("Error.FileLoad"),
-                    Environment.NewLine, Environment.NewLine,
-                    exception.Message), resources.GetString("Error.FileLoad.Title"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }            
+                MessageBox.Show(
+                    string.Concat(
+                        resources.GetString("Error.FileLoad"),
+                        Environment.NewLine, 
+                        Environment.NewLine,
+                        exception.Message), 
+                    resources.GetString("Error.FileLoad.Title"), 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            if (playlistOpenDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (playlistOpenDialog.ShowDialog() == DialogResult.OK)
             {
                 LoadPlaylist(playlistOpenDialog.FileName);
             }
@@ -486,7 +499,7 @@ namespace D16.VideoCommander
 
         private void playlist_DoubleClick(object sender, EventArgs e)
         {
-            System.Windows.Forms.ListView.SelectedListViewItemCollection items = playlist.SelectedItems;
+            ListView.SelectedListViewItemCollection items = playlist.SelectedItems;
 
             if (items == null || items.Count == 0)
             {
@@ -507,7 +520,7 @@ namespace D16.VideoCommander
         {
             this.Invoke((MethodInvoker)delegate
             {
-                lbMousePosition.Text = "X: " + System.Windows.Forms.Cursor.Position.X + " / Y: " + System.Windows.Forms.Cursor.Position.Y;
+                lbMousePosition.Text = "X: " + Cursor.Position.X + " / Y: " + Cursor.Position.Y;
             });
         }
 
@@ -555,7 +568,7 @@ namespace D16.VideoCommander
 
             if (items == null || items.Count == 0)
                 return;
-            
+
             playlist.Items.Remove(items[0]);
         }
     }

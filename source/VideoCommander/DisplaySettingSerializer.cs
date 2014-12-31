@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -13,14 +12,14 @@ namespace D16.VideoCommander
         /// <summary>
         /// The xml serializer.
         /// </summary>
-        private XmlSerializer serializer;
+        private readonly XmlSerializer serializer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DisplaySettingSerializer" /> class.
         /// </summary>
         public DisplaySettingSerializer()
         {
-            serializer = new XmlSerializer(typeof(DisplaySetting));
+            this.serializer = new XmlSerializer(typeof(DisplaySetting));
         }
 
         /// <summary>
@@ -31,9 +30,9 @@ namespace D16.VideoCommander
         public string Serialize(DisplaySetting data)
         {
             if (data == null)
-                return String.Empty;
+                return string.Empty;
 
-            StringBuilder result = new StringBuilder();
+            var result = new StringBuilder();
 
             using (TextWriter writer = new StringWriter(result)) 
             {
@@ -50,7 +49,7 @@ namespace D16.VideoCommander
         /// <returns>The deserialized display setting.</returns>
         public DisplaySetting Deserialize(string data)
         {
-            if (String.IsNullOrEmpty(data))
+            if (string.IsNullOrEmpty(data))
                 return null;
 
             using (TextReader reader = new StringReader(data))

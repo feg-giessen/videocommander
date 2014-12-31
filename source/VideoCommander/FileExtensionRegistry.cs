@@ -17,7 +17,11 @@ namespace D16.VideoCommander
         {
             WindowsIdentity identity = WindowsIdentity.GetCurrent();
 
-            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            if (identity == null)
+                return false;
+
+            var principal = new WindowsPrincipal(identity);
+
             return principal.IsInRole(WindowsBuiltInRole.Administrator);
         }
 
@@ -34,7 +38,7 @@ namespace D16.VideoCommander
             // ensure that there is a leading dot
             if (extension.Substring(0, 1) != ".")
             {
-                extension = String.Concat(".", extension);
+                extension = string.Concat(".", extension);
             }
 
             try
@@ -42,24 +46,24 @@ namespace D16.VideoCommander
                 // create a value for this key that contains the classname
                 using (RegistryKey key1 = Registry.ClassesRoot.CreateSubKey(extension))
                 {
-                    key1.SetValue(String.Empty, className);
+                    key1.SetValue(string.Empty, className);
                 }
 
                 // create a new key for the Class name
                 using (RegistryKey key2 = Registry.ClassesRoot.CreateSubKey(className))
                 {
-                    key2.SetValue(String.Empty, description);
+                    key2.SetValue(string.Empty, description);
                 }
 
                 // associate the program to open the files with this extension
                 using (RegistryKey key3 = Registry.ClassesRoot.CreateSubKey(className + "\\Shell\\Open\\Command"))
                 {
-                    string value = String.Format(CultureInfo.InvariantCulture, "{0} \"%1\"", exeProgram);
+                    string value = string.Format(CultureInfo.InvariantCulture, "{0} \"%1\"", exeProgram);
 
-                    if (value.Equals(key3.GetValue(String.Empty)))
+                    if (value.Equals(key3.GetValue(string.Empty)))
                         return false;
 
-                    key3.SetValue(String.Empty, value);
+                    key3.SetValue(string.Empty, value);
                 }
             }
             catch (Exception exception)
@@ -78,7 +82,7 @@ namespace D16.VideoCommander
             return true;
         }
 
-        private class NativeMethods
+        private static class NativeMethods
         {
             [DllImport("shell32.dll")]
             public static extern void SHChangeNotify(HChangeNotifyEventID wEventId, HChangeNotifyFlags uFlags, IntPtr dwItem1, IntPtr dwItem2);

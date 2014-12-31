@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace D16.VideoCommander
 {
-    class Program
+    public class Program
     {
         [STAThread]
         public static void Main(params string[] arguments)
@@ -14,13 +14,13 @@ namespace D16.VideoCommander
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true);
 
-            Application.ThreadException += Application_ThreadException;
+            Application.ThreadException += OnApplicationThreadException;
             AppDomain.CurrentDomain.UnhandledException += WorkerThreadHandler;
 
-            if (String.IsNullOrEmpty(Properties.Settings.Default.VlcPath))
+            if (string.IsNullOrEmpty(Properties.Settings.Default.VlcPath))
                 Properties.Settings.Default.Upgrade();
 
-            using (Main app = new Main())
+            using (var app = new Main())
             {
                 // Open play list from arguments.
                 if (arguments != null && arguments.Length > 0)
@@ -48,15 +48,17 @@ namespace D16.VideoCommander
             }
         }
 
-        static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        private static void OnApplicationThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {
             Trace.TraceError(e.Exception.ToString());
         }
 
-        static void WorkerThreadHandler(object sender, UnhandledExceptionEventArgs args)
+        private static void WorkerThreadHandler(object sender, UnhandledExceptionEventArgs args)
         {
             if (!(args.ExceptionObject is System.Threading.ThreadAbortException))
+            {
                 Trace.TraceError(args.ExceptionObject.ToString());
+            }
         }
     }
 }

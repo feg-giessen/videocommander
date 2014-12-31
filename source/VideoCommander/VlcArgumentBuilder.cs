@@ -7,7 +7,7 @@ namespace D16.VideoCommander
     /// <summary>
     /// Base class for command line arguments
     /// </summary>
-    abstract class VlcArgumentBuilder
+    internal abstract class VlcArgumentBuilder
     {
         protected VlcArgumentBuilder()
         {
@@ -46,14 +46,7 @@ namespace D16.VideoCommander
             this.commands.Remove(trueValue);
             this.commands.Remove(falseValue);
 
-            if (value)
-            {
-                this.commands.Add(trueValue, null);
-            }
-            else
-            {
-                this.commands.Add(falseValue, null);
-            }
+            this.commands.Add(value ? trueValue : falseValue, null);
         }
 
         /// <summary>
@@ -62,13 +55,13 @@ namespace D16.VideoCommander
         /// <returns></returns>
         public virtual string GetArgumentString()
         {
-            StringBuilder result = new StringBuilder();
+            var result = new StringBuilder();
 
             foreach (var item in this.commands)
             {
                 string value = item.Value;
 
-                if (String.IsNullOrEmpty(value))
+                if (string.IsNullOrEmpty(value))
                 {
                     result.AppendFormat(" {0}", item.Key);
                 }
@@ -76,7 +69,7 @@ namespace D16.VideoCommander
                 {
                     if (value.Contains(" "))
                     {
-                        value = String.Concat("\"", value, "\"");
+                        value = string.Concat("\"", value, "\"");
                     }
 
                     result.AppendFormat(" {0}={1}", item.Key, value);

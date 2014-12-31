@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace D16.VideoCommander
 {
@@ -10,7 +11,7 @@ namespace D16.VideoCommander
         /// <summary>
         /// Path to the video file.
         /// </summary>
-        private string fileName;
+        private readonly string fileName;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VlcFile" /> class.
@@ -28,7 +29,7 @@ namespace D16.VideoCommander
         /// <returns></returns>
         public VlcFile SetStartTime(int seconds)
         {
-            this.SetString(":start-time", seconds.ToString());
+            this.SetString(":start-time", seconds.ToString(CultureInfo.InvariantCulture));
 
             return this;
         }
@@ -40,7 +41,7 @@ namespace D16.VideoCommander
         /// <returns></returns>
         public VlcFile SetEndTime(int seconds)
         {
-            this.SetString(":stop-time", seconds.ToString());
+            this.SetString(":stop-time", seconds.ToString(CultureInfo.InvariantCulture));
 
             return this;
         }
@@ -52,7 +53,7 @@ namespace D16.VideoCommander
         /// <returns></returns>
         public VlcFile SetDuration(int seconds)
         {
-            this.SetString(":run-time", seconds.ToString());
+            this.SetString(":run-time", seconds.ToString(CultureInfo.InvariantCulture));
 
             return this;
         }

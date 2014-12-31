@@ -17,7 +17,8 @@ namespace D16.VideoCommander
         /// <returns>The serielized play list as xml document.</returns>
         public XmlDocument Serialize(IEnumerable<ListViewItem> items)
         {
-            XmlDocument doc = new XmlDocument();
+            var doc = new XmlDocument();
+
             XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "utf-8", "yes");
             doc.AppendChild(declaration);
 
@@ -54,14 +55,14 @@ namespace D16.VideoCommander
         /// <returns>The play list as list of items.</returns>
         public IEnumerable<ListViewItem> Deserialize(XmlDocument document)
         {
-            List<ListViewItem> items = new List<ListViewItem>();
+            var items = new List<ListViewItem>();
 
             if (document == null || document.DocumentElement == null)
                 return items;
 
             foreach (XmlNode element in document.DocumentElement.ChildNodes)
             {
-                ListViewItem item = new ListViewItem(element.InnerText);
+                var item = new ListViewItem(element.InnerText);
 
                 item.SubItems.AddRange(new []
                 {
@@ -85,13 +86,13 @@ namespace D16.VideoCommander
         /// <returns>Value of the attribute or an empty string as fallback.</returns>
         public string GetAttributeValue(XmlNode node, string name)
         {
-            if (node == null || String.IsNullOrEmpty(name))
-                return String.Empty;
+            if (node == null || node.Attributes == null || string.IsNullOrEmpty(name))
+                return string.Empty;
 
             XmlAttribute attribute = node.Attributes[name];
 
             if (attribute == null)
-                return String.Empty;
+                return string.Empty;
 
             return attribute.InnerText;
         }

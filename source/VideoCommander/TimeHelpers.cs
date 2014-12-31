@@ -45,7 +45,7 @@ namespace D16.VideoCommander
                 return 0;
 
             value = value.Trim();
-            if (String.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
                 return 0;
 
             try
@@ -65,7 +65,7 @@ namespace D16.VideoCommander
         /// <returns></returns>
         public static string ToFormatedString(this TimeSpan time)
         {
-            return String.Format("{0:00}:{1:00}:{2:00}", time.Hours, time.Minutes, time.Seconds);
+            return string.Format("{0:00}:{1:00}:{2:00}", time.Hours, time.Minutes, time.Seconds);
         }
     }
 }

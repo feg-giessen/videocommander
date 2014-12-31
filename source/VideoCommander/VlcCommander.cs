@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using System.Linq;
 
 namespace D16.VideoCommander
 {
@@ -29,20 +28,14 @@ namespace D16.VideoCommander
         /// <param name="command">The command.</param>
         public void Start(params VlcArgumentBuilder[] command)
         {
-            List<string> commands = new List<string>();
+            string argumentString = string.Join(" ", command.Select(item => item.GetArgumentString()).ToArray());
 
-            foreach (var item in command) 
-            {
-                commands.Add(item.GetArgumentString());
-            }
-
-            string argumentString = String.Join(" ", commands.ToArray());
             Trace.TraceInformation(argumentString);
 
-            using (Process vlc = new Process()) 
+            using (var vlc = new Process()) 
             {
                 vlc.StartInfo = new ProcessStartInfo(this.path, argumentString);
-                vlc.ErrorDataReceived += OnVlcErrorDataReceived;
+                vlc.ErrorDataReceived += this.OnVlcErrorDataReceived;
 
                 vlc.Start();
             }

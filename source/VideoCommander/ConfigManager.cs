@@ -26,7 +26,7 @@ namespace D16.VideoCommander
             if (Settings.AllKeys.Contains(key))
                 return Settings[key].Value;
 
-            return String.Empty;
+            return string.Empty;
         }
     }
 }

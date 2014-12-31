@@ -15,6 +15,7 @@ namespace D16.VideoCommander
         public bool CloseAfterPlay { get; set; }
 
         public int XPos { get; set; }
+
         public int YPos { get; set; }
 
         public int Height { get; set; }

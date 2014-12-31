@@ -1,4 +1,6 @@
-﻿namespace D16.VideoCommander
+﻿using System.Globalization;
+
+namespace D16.VideoCommander
 {
     /// <summary>
     /// Build for global (not file specific) vlc arguments.
@@ -48,7 +50,7 @@
         /// <returns></returns>
         public VlcCommandBuilder SetWidth(int width)
         {
-            this.SetString("--width", width.ToString());
+            this.SetString("--width", width.ToString(CultureInfo.InvariantCulture));
 
             return this;
         }
@@ -60,7 +62,7 @@
         /// <returns></returns>
         public VlcCommandBuilder SetHeight(int height)
         {
-            this.SetString("--height", height.ToString());
+            this.SetString("--height", height.ToString(CultureInfo.InvariantCulture));
 
             return this;
         }
@@ -72,7 +74,7 @@
         /// <returns></returns>
         public VlcCommandBuilder SetXPos(int xpos)
         {
-            this.SetString("--video-x", xpos.ToString());
+            this.SetString("--video-x", xpos.ToString(CultureInfo.InvariantCulture));
 
             return this;
         }
@@ -84,7 +86,7 @@
         /// <returns></returns>
         public VlcCommandBuilder SetYPos(int ypos)
         {
-            this.SetString("--video-y", ypos.ToString());
+            this.SetString("--video-y", ypos.ToString(CultureInfo.InvariantCulture));
 
             return this;
         }
