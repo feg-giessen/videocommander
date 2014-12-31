@@ -14,13 +14,11 @@ namespace D16.VideoCommander
         /// <returns></returns>
         public static TimeSpan FromFormatedString(string formatedString)
         {
-            int seconds, minutes, hours;
-
             string[] parts = formatedString.Split(':');
 
-            seconds = GetInt(parts[parts.Length - 1]);
-            minutes = 0;
-            hours = 0;
+            int seconds = GetInt(parts[parts.Length - 1]);
+            int minutes = 0;
+            int hours = 0;
 
             if (parts.Length > 1)
             {

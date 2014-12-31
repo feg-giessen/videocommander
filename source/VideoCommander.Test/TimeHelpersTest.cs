@@ -7,7 +7,7 @@ namespace D16.VideoCommander.Test
     ///Dies ist eine Testklasse für "TimeHelpersTest" und soll
     ///alle TimeHelpersTest Komponententests enthalten.
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class TimeHelpersTest
     {
         /// <summary>
@@ -19,7 +19,7 @@ namespace D16.VideoCommander.Test
         /// <summary>
         ///Ein Test für "FromFormatedString"
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void FromFormatedStringTest()
         {
             string formatedString = "12:30";
@@ -32,9 +32,39 @@ namespace D16.VideoCommander.Test
         }
 
         /// <summary>
+        ///Ein Test für "FromFormatedString"
+        ///</summary>
+        [TestMethod]
+        public void FromFormatedString60Test()
+        {
+            string formatedString = "12:60";
+            TimeSpan expected = new TimeSpan(0, 13, 0);
+
+            TimeSpan actual;
+            actual = TimeHelpers.FromFormatedString(formatedString);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        ///Ein Test für "FromFormatedString"
+        ///</summary>
+        [TestMethod]
+        public void FromFormatedString99Test()
+        {
+            string formatedString = "12:99";
+            TimeSpan expected = new TimeSpan(0, 13, 39);
+
+            TimeSpan actual;
+            actual = TimeHelpers.FromFormatedString(formatedString);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
         ///Ein Test für "ToFormatedString"
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void ToFormatedStringTest()
         {
             TimeSpan time = new TimeSpan(10, 5, 39);
