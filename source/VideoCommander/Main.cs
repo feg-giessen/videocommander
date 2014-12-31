@@ -43,6 +43,15 @@ namespace D16.VideoCommander
         {
             this.InitializeComponent();
 
+            var extender = new ListViewExtender(this.playlist);
+
+            // extend 2nd column
+            var buttonAction = new ListViewButtonColumn(this.playlist.Columns.Count - 1);
+            buttonAction.Click += this.PlaySingleAction;
+            buttonAction.FixedWidth = true;
+
+            extender.AddColumn(buttonAction);
+
             this.AllowDrop = true;
             this.DragEnter += MainDragEnter;
             this.DragDrop += MainDragDrop;
@@ -58,6 +67,11 @@ namespace D16.VideoCommander
             mouseTimer = new System.Threading.Timer(DisplayMousePosition);
 
             this.Disposed += Main_Disposed;
+        }
+
+        private void PlaySingleAction(object sender, ListViewColumnMouseEventArgs e)
+        {
+            this.ExecutePlaylist(new [] { e.Item });
         }
 
         private void MainDragEnter(object sender, DragEventArgs e)
@@ -77,7 +91,7 @@ namespace D16.VideoCommander
             foreach (string file in files)
             {
                 var item = playlist.Items.Add(file);
-                item.SubItems.AddRange(new[] { string.Empty, string.Empty, string.Empty });
+                item.SubItems.AddRange(new[] { string.Empty, string.Empty, string.Empty, "\u25B6" });
             }
         }
 
@@ -300,6 +314,11 @@ namespace D16.VideoCommander
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            this.ExecutePlaylist(this.playlist.Items.OfType<ListViewItem>());
+        }
+
+        private void ExecutePlaylist(IEnumerable<ListViewItem> items)
+        {
             DisplaySetting setting = GetActiveDisplay();
 
             var general = new VlcCommandBuilder()
@@ -315,7 +334,7 @@ namespace D16.VideoCommander
             List<VlcArgumentBuilder> commands = new List<VlcArgumentBuilder>();
             commands.Add(general);
 
-            foreach (ListViewItem item in playlist.Items)
+            foreach (ListViewItem item in items)
             {
                 var file = new VlcFile(item.Text);
 
@@ -353,7 +372,7 @@ namespace D16.VideoCommander
                 {
                     Text = addDialog.Video,
                 };
-                item.SubItems.AddRange(new[] { addDialog.StartTime, addDialog.EndTime, addDialog.Duration });
+                item.SubItems.AddRange(new[] { addDialog.StartTime, addDialog.EndTime, addDialog.Duration, "\u25B6" });
 
                 playlist.Items.Add(item);
             }

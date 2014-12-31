@@ -67,6 +67,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.valHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valWidth)).BeginInit();
@@ -228,11 +229,11 @@
             // 
             // panel2
             // 
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel2.Controls.Add(this.rbnDisplay1);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.rbnDisplay2);
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
             // btnPlay
@@ -292,8 +293,8 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.BackgroundImage = global::D16.VideoCommander.Properties.Resources.cog;
             resources.ApplyResources(this.btnSettings, "btnSettings");
+            this.btnSettings.BackgroundImage = global::D16.VideoCommander.Properties.Resources.cog;
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
@@ -346,16 +347,17 @@
             // 
             // playlist
             // 
+            resources.ApplyResources(this.playlist, "playlist");
             this.playlist.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader5});
             this.playlist.ContextMenuStrip = this.menuPlaylist;
             this.playlist.FullRowSelect = true;
             this.playlist.GridLines = true;
             this.playlist.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            resources.ApplyResources(this.playlist, "playlist");
             this.playlist.MultiSelect = false;
             this.playlist.Name = "playlist";
             this.playlist.UseCompatibleStateImageBehavior = false;
@@ -378,6 +380,10 @@
             // columnHeader4
             // 
             resources.ApplyResources(this.columnHeader4, "columnHeader4");
+            // 
+            // columnHeader5
+            // 
+            resources.ApplyResources(this.columnHeader5, "columnHeader5");
             // 
             // Main
             // 
@@ -454,5 +460,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tsmiEdit;
         private System.Windows.Forms.ToolStripMenuItem tsmiDelete;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

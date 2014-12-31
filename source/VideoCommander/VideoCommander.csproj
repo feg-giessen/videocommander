@@ -92,6 +92,7 @@
       <DependentUpon>DvdSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="FileExtensionRegistry.cs" />
+    <Compile Include="ListViewExtender.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
