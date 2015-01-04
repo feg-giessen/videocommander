@@ -68,7 +68,8 @@ namespace D16.VideoCommander
                 {
                     this.GetAttributeValue(element, "start"),
                     this.GetAttributeValue(element, "end"),
-                    this.GetAttributeValue(element, "duration")
+                    this.GetAttributeValue(element, "duration"),
+                    "\u25B6"    // play button
                 });
 
                 items.Add(item);
