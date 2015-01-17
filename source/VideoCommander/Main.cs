@@ -91,8 +91,7 @@ namespace D16.VideoCommander
 
             foreach (string file in files)
             {
-                var item = playlist.Items.Add(file);
-                item.SubItems.AddRange(new[] { string.Empty, string.Empty, string.Empty, "\u25B6" });
+                this.AddPlaylistItem(file);
             }
         }
 
@@ -367,19 +366,25 @@ namespace D16.VideoCommander
             this.AddPlaylistItem();
         }
 
+        public void AddPlaylistItem(string file, string startTime = "", string endTime = "", string duration = "")
+        {
+            var item = new ListViewItem
+            {
+                Text = file,
+            };
+
+            item.SubItems.AddRange(new[] { startTime, endTime, duration, "\u25B6" });
+
+            this.playlist.Items.Add(item);
+        }
+
         private void AddPlaylistItem()
         {
             addDialog.ResetTexts();
 
             if (addDialog.ShowDialog() == DialogResult.OK)
             {
-                var item = new ListViewItem
-                {
-                    Text = addDialog.Video,
-                };
-                item.SubItems.AddRange(new[] { addDialog.StartTime, addDialog.EndTime, addDialog.Duration, "\u25B6" });
-
-                playlist.Items.Add(item);
+                this.AddPlaylistItem(addDialog.Video, addDialog.StartTime, addDialog.EndTime, addDialog.Duration);
             }
         }
 
