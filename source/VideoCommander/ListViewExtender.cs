@@ -139,7 +139,7 @@ namespace D16.VideoCommander
             get { return this.columns.Values; }
         }
 
-        public virtual void Dispose()
+        public void Dispose()
         {
             this.Dispose(true);
 
